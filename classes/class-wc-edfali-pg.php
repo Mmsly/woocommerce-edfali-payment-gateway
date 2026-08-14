@@ -22,6 +22,19 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 		}
 
 		public function init_form_fields() {
+			// جلب جميع تصنيفات وأقسام المنتجات للاختيار منها
+			$categories_options = array();
+			$product_cats = get_terms( array(
+				'taxonomy'   => 'product_cat',
+				'hide_empty' => false,
+			) );
+
+			if ( ! empty( $product_cats ) && ! is_wp_error( $product_cats ) ) {
+				foreach ( $product_cats as $cat ) {
+					$categories_options[ $cat->term_id ] = $cat->name;
+				}
+			}
+
 			$this->form_fields = array(
 				'enabled' => array(
 					'title'   => __( 'تفعيل / تعطيل', 'wc-edfali-pg' ),
@@ -41,6 +54,34 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 					'type'        => 'textarea',
 					'description' => __( 'الوصف الذي يظهر للمشتري عند تحديد وسيلة الدفع.', 'wc-edfali-pg' ),
 					'default'     => 'ادفع بأمان عبر حساب إدفع لي، أدخل رقم هاتفك وسيصلك كود التحقق لتأكيد الخصم فورياً.'
+				),
+				'fee_percent' => array(
+					'title'       => __( 'نسبة العمولة الإضافية (%)', 'wc-edfali-pg' ),
+					'type'        => 'number',
+					'description' => __( 'نسبة مئوية تضاف تلقائياً على إجمالي الطلب عند اختيار الدفع بـ إدفع لي (مثال: 5 تعني إضافة 5%). اتركها 0 إذا لم تكن هناك عمولة.', 'wc-edfali-pg' ),
+					'default'     => '0',
+					'custom_attributes' => array(
+						'step' => '0.1',
+						'min'  => '0',
+					),
+					'desc_tip'    => true
+				),
+				'fee_name' => array(
+					'title'       => __( 'مسمى العمولة في الفاتورة', 'wc-edfali-pg' ),
+					'type'        => 'text',
+					'description' => __( 'الاسم الذي يظهر للمشتري في تفاصيل السلة والحساب للعمولة.', 'wc-edfali-pg' ),
+					'default'     => 'رسوم خدمة إدفع لي',
+					'desc_tip'    => true
+				),
+				'excluded_categories' => array(
+					'title'       => __( 'الأقسام المستثناة من العمولة', 'wc-edfali-pg' ),
+					'type'        => 'multiselect',
+					'class'       => 'wc-enhanced-select',
+					'css'         => 'width: 400px;',
+					'description' => __( 'المنتجات التابعة لهذه الأقسام لن يتم احتساب نسبة العمولة عليها في السلة.', 'wc-edfali-pg' ),
+					'options'     => $categories_options,
+					'default'     => array(),
+					'desc_tip'    => true
 				),
 				'mobile' => array(
 					'title'       => __( 'رقم هاتف المتجر (Merchant Mobile)', 'wc-edfali-pg' ),
@@ -125,7 +166,7 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 				<!-- جدول الإعدادات الافتراضي المنسق -->
 				<div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
 					<h3 style="margin-top: 0; margin-bottom: 20px; color: #1f2937; border-bottom: 2px solid #f3f4f6; padding-bottom: 12px; font-size: 1.2em;">
-						⚙️ ضبط بيانات حساب إدفع لي والاتصال بالبنك
+						⚙️ ضبط بيانات حساب إدفع لي والعمولة والاتصال بالبنك
 					</h3>
 					<table class="form-table">
 						<?php $this->generate_settings_html(); ?>

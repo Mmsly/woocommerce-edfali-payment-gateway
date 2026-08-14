@@ -41,6 +41,11 @@
     }
 
     function bindEvents() {
+        // Trigger checkout recalculation when switching to/from Edfali so fee updates immediately
+        $(document).on('change', 'input[name="payment_method"]', function() {
+            $('body').trigger('update_checkout');
+        });
+
         // Intercept WooCommerce Checkout AJAX Response for Edfali
         $(document).ajaxComplete(function(event, xhr, settings) {
             if (settings.url.indexOf('wc-ajax=checkout') !== -1 || (settings.data && typeof settings.data === 'string' && settings.data.indexOf('action=woocommerce_checkout') !== -1)) {
