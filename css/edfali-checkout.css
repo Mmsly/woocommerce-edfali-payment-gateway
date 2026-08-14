@@ -1,0 +1,218 @@
+/* Edfali Ultra Luxury Popup Modal & Modern Responsive Styles */
+
+.edfali-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    direction: rtl;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.edfali-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.edfali-modal-card {
+    background: #ffffff;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 440px;
+    padding: 36px 30px 28px;
+    box-shadow: 0 30px 60px -12px rgba(76, 29, 149, 0.35), 0 0 0 1px rgba(221, 214, 254, 0.8);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.edfali-modal-overlay.active .edfali-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.edfali-modal-icon-wrapper {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, #7c3aed, #4c1d95);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 24px -4px rgba(124, 58, 237, 0.4);
+    color: #ffffff;
+    font-size: 34px;
+}
+
+.edfali-modal-title {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1e1b4b;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.3px;
+}
+
+.edfali-modal-desc {
+    font-size: 14.5px;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0 0 24px 0;
+    font-weight: 500;
+}
+
+.edfali-modal-desc .edfali-phone-highlight {
+    color: #6d28d9;
+    background: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: 700;
+    direction: ltr;
+    display: inline-block;
+    margin: 4px 2px 0;
+}
+
+.edfali-otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    direction: ltr;
+}
+
+.edfali-otp-digit {
+    width: 58px;
+    height: 64px;
+    border: 2.5px solid #e5e7eb;
+    border-radius: 16px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    font-family: monospace;
+    color: #1e1b4b;
+    background: #f9fafb;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.edfali-otp-digit:focus {
+    border-color: #7c3aed;
+    background: #ffffff;
+    box-shadow: 0 0 0 5px rgba(124, 58, 237, 0.18);
+    transform: translateY(-2px);
+}
+
+.edfali-btn-confirm {
+    width: 100%;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+    color: #ffffff !important;
+    border: none;
+    border-radius: 16px;
+    font-size: 16.5px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -3px rgba(124, 58, 237, 0.4);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.edfali-btn-confirm:hover:not(:disabled) {
+    background: linear-gradient(135deg, #6d28d9, #4c1d95);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 25px -3px rgba(124, 58, 237, 0.5);
+}
+
+.edfali-btn-confirm:disabled {
+    background: #a78bfa !important;
+    color: #ffffff !important;
+    opacity: 0.9;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.edfali-btn-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    background: #f3f4f6;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.edfali-btn-cancel:hover {
+    color: #ef4444;
+    background: #fee2e2;
+}
+
+.edfali-error-msg {
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: none;
+    text-align: right;
+    line-height: 1.5;
+}
+
+.edfali-spinner {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: edfali-spin 0.8s linear infinite;
+}
+
+@keyframes edfali-spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+    .edfali-modal-card {
+        padding: 28px 20px 22px;
+        border-radius: 24px;
+    }
+    .edfali-otp-digit {
+        width: 48px;
+        height: 56px;
+        font-size: 24px;
+        border-radius: 12px;
+    }
+}
