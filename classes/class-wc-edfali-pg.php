@@ -107,8 +107,8 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 				'wsdl_url' => array(
 					'title'       => __( 'رابط الـ WSDL للخدمة', 'wc-edfali-pg' ),
 					'type'        => 'text',
-					'description' => __( 'رابط ويب سيرفس إدفع لي الجديد.', 'wc-edfali-pg' ),
-					'default'     => 'http://102.211.5.141:6187/BCDUssd/NewEdfali.asmx?WSDL',
+					'description' => __( 'رابط ويب سيرفس إدفع لي المعتمد والمحدث.', 'wc-edfali-pg' ),
+					'default'     => 'https://edfali.bcd.ly/api/BCDUssd/NewEdfali.asmx?WSDL',
 					'desc_tip'    => true
 				),
 				'sandbox_mode' => array(

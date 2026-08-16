@@ -3,7 +3,7 @@
 Plugin Name: EDFALI LIBYA - بوابة إدفع لي (مصرف التجارة والتنمية)
 Plugin URI:  https://tahastore.ly
 Description: بوابة الدفع الإلكتروني المباشرة والسريعة إدفع لي (مصرف التجارة والتنمية) لـ WooCommerce عبر نظام AJAX الحديث مع دعم العمولات واستثناء الأقسام - تطوير وبرمجة شركة متجر طه (TAHA STORE) | صدقة جارية وهدية لروح المرحوم طه الشريف.
-Version:     2.1.0
+Version:     2.2.0
 Author:      شركة متجر طه | TAHA STORE
 Author URI:  https://tahastore.ly
 Text Domain: wc-edfali-pg
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or die;
 
 define( 'WC_EDFALI_PG_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WC_EDFALI_PG_CLASS_PATH', trailingslashit( WC_EDFALI_PG_PLUGIN_PATH . 'classes' ) );
-define( 'WC_EDFALI_PG_VER', '2.1.0' );
+define( 'WC_EDFALI_PG_VER', '2.2.0' );
 define( 'WC_EDFALI_PG_BASE_FILE', __FILE__ );
 
 if ( ! class_exists( 'WC_Edfali_PG_Wrapper' ) ) {
