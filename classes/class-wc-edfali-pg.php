@@ -313,7 +313,7 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 					'Mobile'        => $merchant_mobile,
 					'Pin'           => $merchant_pin,
 					'Cmobile'       => '+218' . $customer_phone,
-					'decimalAmount' => (float) $amount,
+					'Amount'        => (float) $amount,
 					'PW'            => $pw,
 				);
 
@@ -356,7 +356,7 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 			}
 
 			// الاتصال بالـ Web Service لتأكيد الخصم
-			$wsdl = $this->get_option( 'wsdl_url', 'http://102.211.5.141:6187/BCDUssd/NewEdfali.asmx?WSDL' );
+			$wsdl = $this->get_option( 'wsdl_url', 'https://edfali.bcd.ly/api/BCDUssd/NewEdfali.asmx?WSDL' );
 			$merchant_mobile = $this->get_option( 'mobile' );
 			$pw              = $this->get_option( 'pw', '123@xdsr$#!!' );
 
