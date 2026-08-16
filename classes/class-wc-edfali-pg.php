@@ -408,18 +408,23 @@ if ( ! class_exists( 'WC_Edfali_PG' ) ) {
 		}
 
 		private function translate_error_code( $code ) {
-			switch ( $code ) {
+			$c = strtoupper( trim( (string) $code ) );
+			switch ( $c ) {
 				case 'PW1':
 					return __( 'خطأ في إعدادات كلمة مرور الخدمة (يرجى مراجعة إدارة المتجر).', 'wc-edfali-pg' );
 				case 'PW':
 					return __( 'الرقم السري لخدمة إدفع لي الخاص بالمتجر غير صحيح.', 'wc-edfali-pg' );
-				case 'Limit':
-					return __( 'المبلغ المطلوب خارج الحدود المالية المسموح بها للمعاملة.', 'wc-edfali-pg' );
+				case 'LIMIT':
+					return __( 'المبلغ المطلوب (15,236 د.ل) يتجاوز الحد الأقصى المسموح به للعملية في خدمة إدفع لي (الحد الأقصى هو أقل من 10,000 د.ل).', 'wc-edfali-pg' );
 				case 'ACC':
 					return __( 'رقم الهاتف المدخل غير مسجل في خدمة إدفع لي بمصرف التجارة والتنمية.', 'wc-edfali-pg' );
-				case 'Bal':
-					return __( 'تعذر إتمام المعاملة حالياً، يرجى المحاولة لاحقاً أو استخدام وسيلة دفع أخرى.', 'wc-edfali-pg' );
+				case 'BAL':
+					return __( 'رصيد الحساب غير كافٍ أو تعذر إتمام المعاملة حالياً.', 'wc-edfali-pg' );
 				default:
+					// إذا لم تكن الاستجابة رقم جلسة أرقام، نعتبرها خطأ
+					if ( ! preg_match( '/^\d+$/', $c ) ) {
+						return sprintf( __( 'استجابة غير متوقعة من بوابة إدفع لي: %s', 'wc-edfali-pg' ), esc_html( $code ) );
+					}
 					return false;
 			}
 		}
