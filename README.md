@@ -49,6 +49,12 @@
 
 ---
 
+
+---
+
+## 🔗 بوابات دفع ليبية أخرى متاحة:
+- 💳 **بوابة سداد (SADAD - المدار الجديد):** [woocommerce-sadad-payment-gateway](https://github.com/Mmsly/woocommerce-sadad-payment-gateway)
+
 ## 📞 الدعم والتطوير (Support)
 
 تم تطوير وصيانة هذه الإضافة وتقديمها مجاناً لمجتمع التجارة الإلكترونية في ليبيا بواسطة:
